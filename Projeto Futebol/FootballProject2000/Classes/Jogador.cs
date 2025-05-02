@@ -1,5 +1,5 @@
 namespace Models;
-public class Jogagor{
+public class Jogador{
     public string Nome {get;set;}
     public int Código{get; set;}
     public int Idade{get;set;}
