@@ -1,0 +1,15 @@
+C:\Users\Usuario\OneDrive\Documentos\ListasC#\ERP-do-Baba-Grupo-11\Projeto Futebol\FootballProject2000\bin\Debug\net9.0\FootballProject2000.exe
+C:\Users\Usuario\OneDrive\Documentos\ListasC#\ERP-do-Baba-Grupo-11\Projeto Futebol\FootballProject2000\bin\Debug\net9.0\FootballProject2000.deps.json
+C:\Users\Usuario\OneDrive\Documentos\ListasC#\ERP-do-Baba-Grupo-11\Projeto Futebol\FootballProject2000\bin\Debug\net9.0\FootballProject2000.runtimeconfig.json
+C:\Users\Usuario\OneDrive\Documentos\ListasC#\ERP-do-Baba-Grupo-11\Projeto Futebol\FootballProject2000\bin\Debug\net9.0\FootballProject2000.dll
+C:\Users\Usuario\OneDrive\Documentos\ListasC#\ERP-do-Baba-Grupo-11\Projeto Futebol\FootballProject2000\bin\Debug\net9.0\FootballProject2000.pdb
+C:\Users\Usuario\OneDrive\Documentos\ListasC#\ERP-do-Baba-Grupo-11\Projeto Futebol\FootballProject2000\obj\Debug\net9.0\FootballProject2000.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\OneDrive\Documentos\ListasC#\ERP-do-Baba-Grupo-11\Projeto Futebol\FootballProject2000\obj\Debug\net9.0\FootballProject2000.AssemblyInfoInputs.cache
+C:\Users\Usuario\OneDrive\Documentos\ListasC#\ERP-do-Baba-Grupo-11\Projeto Futebol\FootballProject2000\obj\Debug\net9.0\FootballProject2000.AssemblyInfo.cs
+C:\Users\Usuario\OneDrive\Documentos\ListasC#\ERP-do-Baba-Grupo-11\Projeto Futebol\FootballProject2000\obj\Debug\net9.0\FootballProject2000.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\OneDrive\Documentos\ListasC#\ERP-do-Baba-Grupo-11\Projeto Futebol\FootballProject2000\obj\Debug\net9.0\FootballProject2000.sourcelink.json
+C:\Users\Usuario\OneDrive\Documentos\ListasC#\ERP-do-Baba-Grupo-11\Projeto Futebol\FootballProject2000\obj\Debug\net9.0\FootballProject2000.dll
+C:\Users\Usuario\OneDrive\Documentos\ListasC#\ERP-do-Baba-Grupo-11\Projeto Futebol\FootballProject2000\obj\Debug\net9.0\refint\FootballProject2000.dll
+C:\Users\Usuario\OneDrive\Documentos\ListasC#\ERP-do-Baba-Grupo-11\Projeto Futebol\FootballProject2000\obj\Debug\net9.0\FootballProject2000.pdb
+C:\Users\Usuario\OneDrive\Documentos\ListasC#\ERP-do-Baba-Grupo-11\Projeto Futebol\FootballProject2000\obj\Debug\net9.0\FootballProject2000.genruntimeconfig.cache
+C:\Users\Usuario\OneDrive\Documentos\ListasC#\ERP-do-Baba-Grupo-11\Projeto Futebol\FootballProject2000\obj\Debug\net9.0\ref\FootballProject2000.dll
