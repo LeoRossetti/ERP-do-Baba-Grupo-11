@@ -1,12 +1,4 @@
 namespace Models;
-<<<<<<< HEAD:Projeto Futebol/FootballProject2000/Classes/Jogador.cs
-public class Jogador{
-    public string Nome {get;set;}
-    public int Código{get; set;}
-    public int Idade{get;set;}
-    public string posicao{get;set;}
-}
-=======
 using System;
 using System.Collections.Generic;
 
@@ -29,7 +21,7 @@ public class Jogador
         Console.Write("IDADE: ");
         int idade = int.Parse(Console.ReadLine());
 
-        Console.Write("Posição: goleiro/ defeza/ ataque: ");
+        Console.Write("Posição: goleiro/ defesa/ ataque: ");
         string posicao = Console.ReadLine().ToLower();
 
         if (posicao != "goleiro" && posicao != "defesa" && posicao != "ataque")
@@ -112,6 +104,3 @@ public class Jogador
         Console.WriteLine("Jogador removido com sucesso!");
     }
 }
-
->>>>>>> ecc0de2702cc5a9c4ccc54ad994e64aa8c818703:Projeto Futebol/Models/Jogador.cs
-    

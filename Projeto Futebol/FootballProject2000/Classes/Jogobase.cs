@@ -1,6 +1,7 @@
 namespace Models;
 public abstract class JogoBase : IRegistravel
 {
+    public int Codigo { get; set; }
     public DateTime Data { get; set; }
     public string Local { get; set; }
     public string TipoCampo { get; set; }
