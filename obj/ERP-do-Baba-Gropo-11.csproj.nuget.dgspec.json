@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\anaot\\Desktop\\ERP-do-Baba-Grupo-11\\ERP-do-Baba-Gropo-11.csproj": {}
+    "C:\\Users\\anaot\\Desktop\\ERP-do-Baba-Gropo-11\\ERP-do-Baba-Gropo-11.csproj": {}
   },
   "projects": {
-    "C:\\Users\\anaot\\Desktop\\ERP-do-Baba-Grupo-11\\ERP-do-Baba-Gropo-11.csproj": {
+    "C:\\Users\\anaot\\Desktop\\ERP-do-Baba-Gropo-11\\ERP-do-Baba-Gropo-11.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\anaot\\Desktop\\ERP-do-Baba-Grupo-11\\ERP-do-Baba-Gropo-11.csproj",
+        "projectUniqueName": "C:\\Users\\anaot\\Desktop\\ERP-do-Baba-Gropo-11\\ERP-do-Baba-Gropo-11.csproj",
         "projectName": "ERP-do-Baba-Gropo-11",
-        "projectPath": "C:\\Users\\anaot\\Desktop\\ERP-do-Baba-Grupo-11\\ERP-do-Baba-Gropo-11.csproj",
+        "projectPath": "C:\\Users\\anaot\\Desktop\\ERP-do-Baba-Gropo-11\\ERP-do-Baba-Gropo-11.csproj",
         "packagesPath": "C:\\Users\\anaot\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\anaot\\Desktop\\ERP-do-Baba-Grupo-11\\obj\\",
+        "outputPath": "C:\\Users\\anaot\\Desktop\\ERP-do-Baba-Gropo-11\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\anaot\\AppData\\Roaming\\NuGet\\NuGet.Config"

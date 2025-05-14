@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "O38Dya7eZ/8=",
+  "dgSpecHash": "lTf5ch11EgI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\anaot\\Desktop\\ERP-do-Baba-Grupo-11\\ERP-do-Baba-Gropo-11.csproj",
+  "projectFilePath": "C:\\Users\\anaot\\Desktop\\ERP-do-Baba-Gropo-11\\ERP-do-Baba-Gropo-11.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anaot\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",
     "C:\\Users\\anaot\\.nuget\\packages\\google.protobuf\\3.30.0\\google.protobuf.3.30.0.nupkg.sha512",
