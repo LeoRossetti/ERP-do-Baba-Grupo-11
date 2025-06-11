@@ -17,6 +17,7 @@ namespace ProjetoFutebol.Models
             TipoCampo = tipoCampo;
             JogadoresPorTime = jogadoresPorTime;
             LimiteTimes = limiteTimes;
+            Partidas = new List<Partida>();
         }
 
         public override bool PodeConfirmarPartida()

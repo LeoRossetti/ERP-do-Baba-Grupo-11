@@ -21,9 +21,13 @@ namespace ProjetoFutebol.Services
             jogos.Remove(jogo);
         }
 
-        public void RegistrarInteressado(Jogo jogo, string nome)
+        public void RegistrarInteressado(Jogo jogo, Jogador jogador)
         {
-            jogo.RegistrarInteressado(nome);
+            jogo.RegistrarInteressado(jogador);
+        }
+        public void AdicionarPartida(Jogo jogo, Partida partida)
+        {
+            jogo.Partidas.Add(partida);
         }
 
     }

@@ -1,0 +1,42 @@
+[
+  {
+    "Codigo": 222,
+    "Nome": "taibo",
+    "Idade": 13,
+    "Posicao": 0,
+    "Pontos": 0,
+    "Gols": 0
+  },
+  {
+    "Codigo": 11,
+    "Nome": "bostoide",
+    "Idade": 90,
+    "Posicao": 2,
+    "Pontos": 0,
+    "Gols": 0
+  },
+  {
+    "Codigo": 999,
+    "Nome": "Macakitos",
+    "Idade": 23,
+    "Posicao": 2,
+    "Pontos": 0,
+    "Gols": 0
+  },
+  {
+    "Codigo": 666,
+    "Nome": "Pel\u00FAcio",
+    "Idade": 64,
+    "Posicao": 1,
+    "Pontos": 0,
+    "Gols": 0
+  },
+  {
+    "Codigo": 555,
+    "Nome": "leproso",
+    "Idade": 30,
+    "Posicao": 0,
+    "Pontos": 0,
+    "Gols": 0
+  }
+]

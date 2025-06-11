@@ -1548,19 +1548,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\anaot\\.nuget\\packages\\": {}
+    "C:\\Users\\leofr\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\anaot\\Desktop\\ERP-do-Baba-Gropo-11\\ERP-do-Baba-Gropo-11.csproj",
+      "projectUniqueName": "C:\\Users\\leofr\\Documents\\GitHub\\ERP-do-Baba-Grupo-11\\ERP-do-Baba-Gropo-11.csproj",
       "projectName": "ERP-do-Baba-Gropo-11",
-      "projectPath": "C:\\Users\\anaot\\Desktop\\ERP-do-Baba-Gropo-11\\ERP-do-Baba-Gropo-11.csproj",
-      "packagesPath": "C:\\Users\\anaot\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\anaot\\Desktop\\ERP-do-Baba-Gropo-11\\obj\\",
+      "projectPath": "C:\\Users\\leofr\\Documents\\GitHub\\ERP-do-Baba-Grupo-11\\ERP-do-Baba-Gropo-11.csproj",
+      "packagesPath": "C:\\Users\\leofr\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\leofr\\Documents\\GitHub\\ERP-do-Baba-Grupo-11\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\anaot\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\leofr\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -1584,7 +1584,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -1611,7 +1611,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
