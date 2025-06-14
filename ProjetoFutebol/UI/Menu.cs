@@ -50,11 +50,55 @@ namespace ProjetoFutebol.UI
                             Console.WriteLine("Jogador cadastrado com sucesso.");
                             break;
 
+<<<<<<< Updated upstream
                         case "2":
                             Console.WriteLine("Lista de jogadores:");
                             foreach (var j in gerJogadores.ListarJogadores())
                                 Console.WriteLine($"- {j.Codigo} | {j.Nome} | {j.Idade} anos | {j.Posicao}");
                             break;
+=======
+        private void ExibirMenuJogos()
+        {
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("╔════════════════════════════════════════════╗");
+                Console.WriteLine("║           GESTÃO DE JOGOS                  ║");
+                Console.WriteLine("╠════════════════════════════════════════════╣");
+                Console.WriteLine("║  1. Criar jogo                             ║");
+                Console.WriteLine("║  2. Listar jogos                           ║");
+                Console.WriteLine("║  3. Atualizar jogo                         ║");
+                Console.WriteLine("║  4. Remover jogo                           ║");
+                Console.WriteLine("║  5. Registrar interessado no jogo          ║");
+                Console.WriteLine("║  6. Verificar se jogo pode ser confirmado  ║");
+                Console.WriteLine("║  7. Registrar partida                      ║");
+                Console.WriteLine("║  8. Ver histórico de partidas              ║");
+                Console.WriteLine("║  9. Ver pódio de times com mais gols       ║");
+                Console.WriteLine("║  0. Voltar                                 ║");
+                Console.WriteLine("╚════════════════════════════════════════════╝");
+                Console.Write("Escolha uma opção: ");
+                var opcao = Console.ReadLine();
+                if (opcao == "0") break;
+                switch (opcao)
+                {
+                    case "1":
+                        Console.Write("Data do jogo (yyyy-mm-dd): ");
+                        DateTime data = DateTime.Parse(Console.ReadLine()!);
+                        Console.Write("Local: ");
+                        string local = Console.ReadLine()!;
+                        Console.Write("Tipo do campo: ");
+                        string campo = Console.ReadLine()!;
+                        Console.Write("Jogadores por time: ");
+                        int jpt = int.Parse(Console.ReadLine()!);
+                        Console.Write("Limite de times (opcional): ");
+                        string inputLimite = Console.ReadLine()!;
+                        int? limite = string.IsNullOrWhiteSpace(inputLimite) ? null : int.Parse(inputLimite);
+                        var jogo = new Jogo(data, local, campo, jpt, limite);
+                        gerJogos.AdicionarJogo(jogo);
+                        Console.WriteLine("Jogo criado com sucesso.");
+                        Console.ReadLine();
+                        break;
+>>>>>>> Stashed changes
 
                         case "3":
                             Console.Write("Código do jogador a remover: ");
