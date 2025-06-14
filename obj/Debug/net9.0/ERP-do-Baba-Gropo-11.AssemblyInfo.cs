@@ -13,7 +13,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ERP-do-Baba-Gropo-11")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< Updated upstream
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+49b1ecfdc71fd26db20af88e303e7e8bfbd9d485")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d65f15a161eeee8221492c6b89bb20204a7d3b3")]
+>>>>>>> Stashed changes
 [assembly: System.Reflection.AssemblyProductAttribute("ERP-do-Baba-Gropo-11")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ERP-do-Baba-Gropo-11")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
