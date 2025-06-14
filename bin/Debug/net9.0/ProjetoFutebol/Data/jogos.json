@@ -1,1 +1,109 @@
-[]
+[
+  {
+    "Data": "2025-09-09T00:00:00",
+    "Local": "unasp",
+    "TipoCampo": "grama",
+    "JogadoresPorTime": 3,
+    "LimiteTimes": null,
+    "Interessados": [
+      {
+        "Codigo": 222,
+        "Nome": "taibo",
+        "Idade": 13,
+        "Posicao": 0
+      },
+      {
+        "Codigo": 11,
+        "Nome": "bostoide",
+        "Idade": 90,
+        "Posicao": 2
+      },
+      {
+        "Codigo": 999,
+        "Nome": "Macakitos",
+        "Idade": 23,
+        "Posicao": 2
+      },
+      {
+        "Codigo": 666,
+        "Nome": "Pel\u00FAcio",
+        "Idade": 64,
+        "Posicao": 1
+      },
+      {
+        "Codigo": 555,
+        "Nome": "leproso",
+        "Idade": 30,
+        "Posicao": 0
+      },
+      {
+        "Codigo": 12345,
+        "Nome": "ronaldinho",
+        "Idade": 40,
+        "Posicao": 2
+      },
+      {
+        "Codigo": 9991,
+        "Nome": "brunao",
+        "Idade": 31,
+        "Posicao": 0
+      }
+    ],
+    "Partidas": [
+      {
+        "Data": "2025-06-14T17:44:25.5762344-03:00",
+        "Time1": "Time 1",
+        "Time2": "Time 2",
+        "Vencedor": "Time 1",
+        "Observacoes": null,
+        "GolsTime1": 2,
+        "GolsTime2": 0
+      },
+      {
+        "Data": "2025-06-14T17:44:34.7381442-03:00",
+        "Time1": "Time 1",
+        "Time2": "Time 2",
+        "Vencedor": "Time 1",
+        "Observacoes": null,
+        "GolsTime1": 2,
+        "GolsTime2": 0
+      },
+      {
+        "Data": "2025-06-14T17:44:49.0827012-03:00",
+        "Time1": "Time 1",
+        "Time2": "Time 3",
+        "Vencedor": "Time 1",
+        "Observacoes": null,
+        "GolsTime1": 2,
+        "GolsTime2": 0
+      },
+      {
+        "Data": "2025-06-14T17:45:07.300076-03:00",
+        "Time1": "Time 1",
+        "Time2": "Time 3",
+        "Vencedor": "Time 3",
+        "Observacoes": null,
+        "GolsTime1": 2,
+        "GolsTime2": 3
+      },
+      {
+        "Data": "2025-06-14T17:45:19.1137309-03:00",
+        "Time1": "Time 3",
+        "Time2": "Time 4",
+        "Vencedor": "Time 3",
+        "Observacoes": null,
+        "GolsTime1": 4,
+        "GolsTime2": 2
+      },
+      {
+        "Data": "2025-06-14T17:45:27.0344653-03:00",
+        "Time1": "Time 3",
+        "Time2": "Time 4",
+        "Vencedor": "Time 3",
+        "Observacoes": null,
+        "GolsTime1": 4,
+        "GolsTime2": 2
+      }
+    ]
+  }
+]

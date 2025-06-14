@@ -105,26 +105,27 @@ namespace ProjetoFutebol.Models
             return (time1, time2);
         }
 
-        // 3. Exemplo de critério criativo: alternar jogadores por pontuação
-        public static (Times, Times) CriarPorPontuacaoAlternada(List<Jogador> jogadores, int tamanhoTime)
+        // 3. Critério criativo: alterna mais velhos e mais novos
+        public static (Times, Times) CriarPorIdadeAlternada(List<Jogador> jogadores, int tamanhoTime)
         {
             var time1 = new Times("Time 1");
             var time2 = new Times("Time 2");
-            var ordenados = jogadores.OrderByDescending(j => j.Pontos).ToList();
-            for (int i = 0; i < ordenados.Count; i++)
+            var ordenados = jogadores.OrderByDescending(j => j.Idade).ToList();
+            int i = 0;
+            while ((time1.Jogadores.Count < tamanhoTime || time2.Jogadores.Count < tamanhoTime) && i < ordenados.Count)
             {
-                if (i % 2 == 0 && time1.Jogadores.Count < tamanhoTime)
-                    time1.Jogadores.Add(ordenados[i]);
-                else if (time2.Jogadores.Count < tamanhoTime)
-                    time2.Jogadores.Add(ordenados[i]);
+                if (time1.Jogadores.Count < tamanhoTime)
+                    time1.Jogadores.Add(ordenados[i++]);
+                if (i < ordenados.Count && time2.Jogadores.Count < tamanhoTime)
+                    time2.Jogadores.Add(ordenados[i++]);
             }
             return (time1, time2);
         }
 
         // 4. Gerar novo time após término de partida, reaproveitando jogadores do time derrotado
-        public static Times GerarNovoTime(List<Jogador> jogadoresDisponiveis, Times timeDerrotado, int tamanhoTime)
+        public static Times GerarNovoTime(List<Jogador> jogadoresDisponiveis, Times timeDerrotado, int tamanhoTime, int numeroTime)
         {
-            var novoTime = new Times("Novo Time");
+            var novoTime = new Times($"Time {numeroTime}");
             // Adiciona jogadores disponíveis
             foreach (var j in jogadoresDisponiveis)
             {

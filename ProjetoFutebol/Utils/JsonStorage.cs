@@ -8,7 +8,6 @@ namespace ProjetoFutebol.Utils
     public static class JsonStorage
     {
         private static string jogadoresPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ProjetoFutebol", "Data", "jogadores.json");
-        private static string partidasPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ProjetoFutebol", "Data", "partidas.json");
         private static string timesPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ProjetoFutebol", "Data", "times.json");
         private static string jogosPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ProjetoFutebol", "Data", "jogos.json");
 
@@ -31,20 +30,6 @@ namespace ProjetoFutebol.Utils
             if (!File.Exists(jogadoresPath)) return new List<Jogador>();
             var json = File.ReadAllText(jogadoresPath);
             return JsonSerializer.Deserialize<List<Jogador>>(json) ?? new List<Jogador>();
-        }
-
-        public static void SalvarPartidas(List<Partida> partidas)
-        {
-            GarantirDiretorio(partidasPath);
-            var json = JsonSerializer.Serialize(partidas, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(partidasPath, json);
-        }
-
-        public static List<Partida> CarregarPartidas()
-        {
-            if (!File.Exists(partidasPath)) return new List<Partida>();
-            var json = File.ReadAllText(partidasPath);
-            return JsonSerializer.Deserialize<List<Partida>>(json) ?? new List<Partida>();
         }
 
         public static void SalvarTimes(List<Times> times)

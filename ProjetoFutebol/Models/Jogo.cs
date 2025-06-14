@@ -20,6 +20,19 @@ namespace ProjetoFutebol.Models
             Partidas = new List<Partida>();
         }
 
+        public new DateTime Data { get => base.Data; set => base.Data = value; }
+        public new string Local { get => base.Local; set => base.Local = value; }
+        public new string TipoCampo { get => base.TipoCampo; set => base.TipoCampo = value; }
+        public new int JogadoresPorTime { get => base.JogadoresPorTime; set => base.JogadoresPorTime = value; }
+        public new int? LimiteTimes { get => base.LimiteTimes; set => base.LimiteTimes = value; }
+
+        // Propriedade pública para serialização correta dos interessados
+        public List<Jogador> Interessados
+        {
+            get => interessados;
+            set => interessados = value ?? new List<Jogador>();
+        }
+
         public override bool PodeConfirmarPartida()
         {
             int totalJogadores = interessados.Count;

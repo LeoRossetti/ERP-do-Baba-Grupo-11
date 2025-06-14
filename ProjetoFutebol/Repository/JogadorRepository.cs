@@ -15,12 +15,11 @@ namespace ProjetoFutebol.Data
                 using var conn = new MySqlConnection(_connString);
                 conn.Open();
                 var cmd = conn.CreateCommand();
-                cmd.CommandText = "INSERT INTO jogadores (codigo, nome, idade, posicao, pontos) VALUES (@c, @n, @i, @p, @pt)";
+                cmd.CommandText = "INSERT INTO jogadores (codigo, nome, idade, posicao) VALUES (@c, @n, @i, @p)";
                 cmd.Parameters.AddWithValue("@c", j.Codigo);
                 cmd.Parameters.AddWithValue("@n", j.Nome);
                 cmd.Parameters.AddWithValue("@i", j.Idade);
                 cmd.Parameters.AddWithValue("@p", j.Posicao.ToString());
-                cmd.Parameters.AddWithValue("@pt", j.Pontos);
                 cmd.ExecuteNonQuery();
             }
             catch (MySqlException ex)
@@ -39,7 +38,7 @@ namespace ProjetoFutebol.Data
                 using var conn = new MySqlConnection(_connString);
                 conn.Open();
                 var cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT codigo, nome, idade, posicao, pontos FROM jogadores";
+                cmd.CommandText = "SELECT codigo, nome, idade, posicao FROM jogadores";
                 using var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -47,8 +46,7 @@ namespace ProjetoFutebol.Data
                         reader.GetInt32("codigo"),
                         reader.GetString("nome"),
                         reader.GetInt32("idade"),
-                        Enum.Parse<Posicao>(reader.GetString("posicao")),
-                        reader.GetInt32("pontos")
+                        Enum.Parse<Posicao>(reader.GetString("posicao"))
                     ));
                 }
             }
@@ -60,23 +58,42 @@ namespace ProjetoFutebol.Data
             return jogadores;
         }
 
-        // Método para atualizar a pontuação de um jogador
-        public void AtualizarPontuacao(int codigo, int pontos)
+        // Método para atualizar dados do jogador
+        public void Atualizar(Jogador j)
         {
             try
             {
                 using var conn = new MySqlConnection(_connString);
                 conn.Open();
                 var cmd = conn.CreateCommand();
-                cmd.CommandText = "UPDATE jogadores SET pontos = @pt WHERE codigo = @c";
-                cmd.Parameters.AddWithValue("@pt", pontos);
+                cmd.CommandText = "UPDATE jogadores SET nome = @n, idade = @i, posicao = @p WHERE codigo = @c";
+                cmd.Parameters.AddWithValue("@n", j.Nome);
+                cmd.Parameters.AddWithValue("@i", j.Idade);
+                cmd.Parameters.AddWithValue("@p", j.Posicao.ToString());
+                cmd.Parameters.AddWithValue("@c", j.Codigo);
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine($"Erro ao atualizar jogador: {ex.Message}");
+            }
+        }
+
+        // Método para remover jogador
+        public void Remover(int codigo)
+        {
+            try
+            {
+                using var conn = new MySqlConnection(_connString);
+                conn.Open();
+                var cmd = conn.CreateCommand();
+                cmd.CommandText = "DELETE FROM jogadores WHERE codigo = @c";
                 cmd.Parameters.AddWithValue("@c", codigo);
                 cmd.ExecuteNonQuery();
             }
             catch (MySqlException ex)
             {
-                // Tratar exceção de banco de dados
-                Console.WriteLine($"Erro ao atualizar pontuação do jogador: {ex.Message}");
+                Console.WriteLine($"Erro ao remover jogador: {ex.Message}");
             }
         }
 
@@ -88,7 +105,7 @@ namespace ProjetoFutebol.Data
                 using var conn = new MySqlConnection(_connString);
                 conn.Open();
                 var cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT codigo, nome, idade, posicao, pontos FROM jogadores WHERE codigo = @c";
+                cmd.CommandText = "SELECT codigo, nome, idade, posicao FROM jogadores WHERE codigo = @c";
                 cmd.Parameters.AddWithValue("@c", codigo);
                 using var reader = cmd.ExecuteReader();
                 if (reader.Read())
@@ -97,14 +114,12 @@ namespace ProjetoFutebol.Data
                         reader.GetInt32("codigo"),
                         reader.GetString("nome"),
                         reader.GetInt32("idade"),
-                        Enum.Parse<Posicao>(reader.GetString("posicao")),
-                        reader.GetInt32("pontos")
+                        Enum.Parse<Posicao>(reader.GetString("posicao"))
                     );
                 }
             }
             catch (MySqlException ex)
             {
-                // Tratar exceção de banco de dados
                 Console.WriteLine($"Erro ao buscar jogador: {ex.Message}");
             }
             return null;

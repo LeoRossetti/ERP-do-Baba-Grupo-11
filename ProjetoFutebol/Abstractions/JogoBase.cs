@@ -21,6 +21,9 @@ namespace ProjetoFutebol.Abstractions
                 throw new ArgumentException("Jogador não pode ser nulo.");
             if (interessados.Any(j => j.Codigo == jogador.Codigo))
                 throw new InvalidOperationException("Esse jogador já foi registrado como interessado.");
+            int? maxJogadores = LimiteTimes.HasValue ? LimiteTimes.Value * JogadoresPorTime : (int?)null;
+            if (maxJogadores.HasValue && interessados.Count >= maxJogadores.Value)
+                throw new InvalidOperationException($"O limite de interessados para este jogo já foi atingido ({maxJogadores.Value} jogadores).");
             interessados.Add(jogador);
         }
 

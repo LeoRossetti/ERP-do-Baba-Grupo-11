@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\leofr\\Documents\\GitHub\\ERP-do-Baba-Grupo-11\\ERP-do-Baba-Gropo-11.csproj": {}
+    "C:\\Users\\Leo\\Documents\\GitHub\\ERP-do-Baba-Grupo-11\\ERP-do-Baba-Gropo-11.csproj": {}
   },
   "projects": {
-    "C:\\Users\\leofr\\Documents\\GitHub\\ERP-do-Baba-Grupo-11\\ERP-do-Baba-Gropo-11.csproj": {
+    "C:\\Users\\Leo\\Documents\\GitHub\\ERP-do-Baba-Grupo-11\\ERP-do-Baba-Gropo-11.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leofr\\Documents\\GitHub\\ERP-do-Baba-Grupo-11\\ERP-do-Baba-Gropo-11.csproj",
+        "projectUniqueName": "C:\\Users\\Leo\\Documents\\GitHub\\ERP-do-Baba-Grupo-11\\ERP-do-Baba-Gropo-11.csproj",
         "projectName": "ERP-do-Baba-Gropo-11",
-        "projectPath": "C:\\Users\\leofr\\Documents\\GitHub\\ERP-do-Baba-Grupo-11\\ERP-do-Baba-Gropo-11.csproj",
-        "packagesPath": "C:\\Users\\leofr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leofr\\Documents\\GitHub\\ERP-do-Baba-Grupo-11\\obj\\",
+        "projectPath": "C:\\Users\\Leo\\Documents\\GitHub\\ERP-do-Baba-Grupo-11\\ERP-do-Baba-Gropo-11.csproj",
+        "packagesPath": "C:\\Users\\Leo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Leo\\Documents\\GitHub\\ERP-do-Baba-Grupo-11\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\leofr\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Leo\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -65,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
