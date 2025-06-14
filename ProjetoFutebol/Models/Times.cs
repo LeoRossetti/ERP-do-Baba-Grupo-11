@@ -1,174 +1,144 @@
 using System.Collections.Generic;
+using System.Linq;
 
-namespace ProjetoFutebol.Models // namespace esquisito pra pegar tudo 
+namespace ProjetoFutebol.Models
 {
-    public class Time : Jogador 
+    public class Times
     {
+        public string Nome { get; set; }
         public List<Jogador> Jogadores { get; set; }
+        public bool EmJogo { get; set; } // Indica se o time está em partida
 
-        public Time(int codigo, string nome, int idade, Posicao posicao, int pontos)
-            : base(codigo, nome, idade, posicao, pontos) // contrutor gigantesco 
+        public Times(string nome)
         {
+            Nome = nome;
             Jogadores = new List<Jogador>();
+            EmJogo = false;
         }
 
-        public void AdicionarJogadores(Jogador jogador)
+        // 1. Criação de times por ordem de chegada (com regra dos goleiros)
+        public static (Times, Times) CriarPorOrdemChegada(List<Jogador> jogadores, int tamanhoTime)
         {
-            Jogadores.Add(jogador);
+            var time1 = new Times("Time 1");
+            var time2 = new Times("Time 2");
+
+            // Seleciona goleiros
+            var goleiros = jogadores.Where(j => j.Posicao == Posicao.Goleiro).ToList();
+            Jogador goleiro1 = goleiros.Count > 0 ? goleiros[0] : jogadores[0];
+            Jogador goleiro2;
+            if (goleiros.Count > 1)
+            {
+                goleiro2 = goleiros[1];
+            }
+            else
+            {
+                // Pega o próximo jogador que não seja o goleiro1 e não seja goleiro
+                goleiro2 = jogadores.First(j => j != goleiro1 && j.Posicao != Posicao.Goleiro);
+            }
+
+            time1.Jogadores.Add(goleiro1);
+            time2.Jogadores.Add(goleiro2);
+
+            // Remove goleiros da lista para distribuir os demais
+            var restantes = jogadores.Where(j => j != goleiro1 && j != goleiro2 && j.Posicao != Posicao.Goleiro).ToList();
+            var outros = jogadores.Where(j => j != goleiro1 && j != goleiro2 && j.Posicao == Posicao.Goleiro).ToList();
+            restantes.AddRange(outros); // Adiciona eventuais goleiros "sobrando" só depois
+
+            // Adiciona os próximos jogadores por ordem de chegada
+            for (int i = 0; i < restantes.Count && (time1.Jogadores.Count < tamanhoTime || time2.Jogadores.Count < tamanhoTime); i++)
+            {
+                if (time1.Jogadores.Count < tamanhoTime)
+                    time1.Jogadores.Add(restantes[i]);
+                else if (time2.Jogadores.Count < tamanhoTime)
+                    time2.Jogadores.Add(restantes[i]);
+            }
+
+            return (time1, time2);
         }
 
-        public void RemoverJogadores(Jogador jogador)
+        // 2. Criação de times equilibrados por posição
+        public static (Times, Times) CriarPorEquilibrioDePosicao(List<Jogador> jogadores, int tamanhoTime)
         {
-            Jogadores.Remove(jogador);
+            var time1 = new Times("Time 1");
+            var time2 = new Times("Time 2");
+
+            // Seleciona goleiros
+            var goleiros = jogadores.Where(j => j.Posicao == Posicao.Goleiro).ToList();
+            if (goleiros.Count > 0) time1.Jogadores.Add(goleiros[0]);
+            if (goleiros.Count > 1) time2.Jogadores.Add(goleiros[1]);
+            else if (goleiros.Count == 1 && jogadores.Count > 1) time2.Jogadores.Add(jogadores.First(j => j.Posicao != Posicao.Goleiro));
+            else if (goleiros.Count == 0 && jogadores.Count > 1)
+            {
+                time1.Jogadores.Add(jogadores[0]);
+                time2.Jogadores.Add(jogadores[1]);
+            }
+
+            // Defensores e atacantes
+            var defesas = jogadores.Where(j => j.Posicao == Posicao.Defesa && !time1.Jogadores.Contains(j) && !time2.Jogadores.Contains(j)).ToList();
+            var ataques = jogadores.Where(j => j.Posicao == Posicao.Ataque && !time1.Jogadores.Contains(j) && !time2.Jogadores.Contains(j)).ToList();
+
+            // Alterna defensores
+            for (int i = 0; i < defesas.Count; i++)
+            {
+                if (time1.Jogadores.Count < tamanhoTime && (i % 2 == 0))
+                    time1.Jogadores.Add(defesas[i]);
+                else if (time2.Jogadores.Count < tamanhoTime)
+                    time2.Jogadores.Add(defesas[i]);
+            }
+            // Alterna atacantes
+            for (int i = 0; i < ataques.Count; i++)
+            {
+                if (time1.Jogadores.Count < tamanhoTime && (i % 2 == 0))
+                    time1.Jogadores.Add(ataques[i]);
+                else if (time2.Jogadores.Count < tamanhoTime)
+                    time2.Jogadores.Add(ataques[i]);
+            }
+            // Preenche se faltar
+            var restantes = jogadores.Except(time1.Jogadores).Except(time2.Jogadores).ToList();
+            foreach (var j in restantes)
+            {
+                if (time1.Jogadores.Count < tamanhoTime)
+                    time1.Jogadores.Add(j);
+                else if (time2.Jogadores.Count < tamanhoTime)
+                    time2.Jogadores.Add(j);
+            }
+            return (time1, time2);
         }
 
-        public static List<Time> OrdemChegada(List<Jogador> jogadores, int jogadoresPorTime)
+        // 3. Critério criativo: alterna mais velhos e mais novos
+        public static (Times, Times) CriarPorIdadeAlternada(List<Jogador> jogadores, int tamanhoTime)
         {
-            var times = new List<Time>();
-            var fila = new Queue<Jogador>(jogadores);
-            int codigoTime = 1;
-
-            while (fila.Count > 0)
+            var time1 = new Times("Time 1");
+            var time2 = new Times("Time 2");
+            var ordenados = jogadores.OrderByDescending(j => j.Idade).ToList();
+            int i = 0;
+            while ((time1.Jogadores.Count < tamanhoTime || time2.Jogadores.Count < tamanhoTime) && i < ordenados.Count)
             {
-                // Seleciona o goleiro
-                Jogador goleiro = null;
-                int busca = 0;
-                int filaCount = fila.Count;
-                while (busca < filaCount)
-                {
-                    var jogador = fila.Dequeue();// dequeue é desenfileirar o jigador que está no início
-                    if (goleiro == null && jogador.Posicao == Posicao.Goleiro)
-                    {
-                        goleiro = jogador;
-                        break;
-                    }
-                    else
-                    {
-                        fila.Enqueue(jogador); // enfileirando o goleiro no início 
-                    }
-                    busca++;
-                }
-                if (goleiro == null)
-                {
-                    //não tem goleiro pra dois times 
-                    break;
-                }
-                // add o goleiro 
-                var time = new Time(codigoTime++, $"Time {codigoTime}", 0, Posicao.Goleiro, 0);
-                time.AdicionarJogadores(goleiro);
-
-                // Preenche o restante do time
-                int count = 1;
-                while (count < jogadoresPorTime && fila.Count > 0)
-                {
-                    var jogador = fila.Dequeue();
-                    if (jogador.Posicao != Posicao.Goleiro)
-                    {
-                        time.AdicionarJogadores(jogador);
-                        count++;
-                    }
-                    else
-                    {
-                        // Mantém goleiros para outros times
-                        fila.Enqueue(jogador);
-                    }
-                }
-                times.Add(time);
+                if (time1.Jogadores.Count < tamanhoTime)
+                    time1.Jogadores.Add(ordenados[i++]);
+                if (i < ordenados.Count && time2.Jogadores.Count < tamanhoTime)
+                    time2.Jogadores.Add(ordenados[i++]);
             }
-            return times;
+            return (time1, time2);
         }
 
-        public static List<Time> FormarTimesBalanceados(List<Jogador> jogadores, int jogadoresPorTime)
+        // 4. Gerar novo time após término de partida, reaproveitando jogadores do time derrotado
+        public static Times GerarNovoTime(List<Jogador> jogadoresDisponiveis, Times timeDerrotado, int tamanhoTime, int numeroTime)
         {
-            var times = new List<Time>();
-            int codigoTime = 1;
-            // Separa jogadores por posição
-            var goleiros = new Queue<Jogador>(jogadores.FindAll(j => j.Posicao == Posicao.Goleiro));
-            var defesas = new Queue<Jogador>(jogadores.FindAll(j => j.Posicao == Posicao.Defesa));
-            var ataques = new Queue<Jogador>(jogadores.FindAll(j => j.Posicao == Posicao.Ataque));
-
-            int totalTimes = Math.Min(goleiros.Count, (goleiros.Count + defesas.Count + ataques.Count) / jogadoresPorTime);
-            for (int i = 0; i < totalTimes; i++)
+            var novoTime = new Times($"Time {numeroTime}");
+            // Adiciona jogadores disponíveis
+            foreach (var j in jogadoresDisponiveis)
             {
-                var time = new Time(codigoTime++, $"Time {codigoTime}", 0, Posicao.Goleiro, 0);
-                times.Add(time);
+                if (novoTime.Jogadores.Count < tamanhoTime)
+                    novoTime.Jogadores.Add(j);
             }
-
-            // Distribui goleiros
-            foreach (var time in times)
+            // Se faltar, completa com jogadores do time derrotado
+            foreach (var j in timeDerrotado.Jogadores)
             {
-                if (goleiros.Count > 0)
-                    time.AdicionarJogadores(goleiros.Dequeue());
+                if (novoTime.Jogadores.Count < tamanhoTime && !novoTime.Jogadores.Contains(j))
+                    novoTime.Jogadores.Add(j);
             }
-
-            // Distribui defesas e ataques balanceando
-            int JogadorComum = 0;
-            while (defesas.Count > 0 || ataques.Count > 0)
-            {
-                if (defesas.Count > 0)
-                {
-                    times[JogadorComum % times.Count].AdicionarJogadores(defesas.Dequeue());
-                    JogadorComum++;
-                }
-                if (ataques.Count > 0)
-                {
-                    times[JogadorComum % times.Count].AdicionarJogadores(ataques.Dequeue());
-                    JogadorComum++;
-                }
-            }
-
-            // Se algum time ficou com menos jogadores, preenche com o que sobrou
-            foreach (var time in times)
-            {
-                while (time.Jogadores.Count < jogadoresPorTime)
-                {
-                    if (goleiros.Count > 0) time.AdicionarJogadores(goleiros.Dequeue());
-                    else if (defesas.Count > 0) time.AdicionarJogadores(defesas.Dequeue());
-                    else if (ataques.Count > 0) time.AdicionarJogadores(ataques.Dequeue());
-                    else break;
-                }
-            }
-
-            return times;
-        }
-
-        public static List<Time> FormarTimesPorIdade(List<Jogador> jogadores, int jogadoresPorTime)
-        {
-            var times = new List<Time>();
-            int codigoTime = 1;
-            // Ordena jogadores por idade (do mais novo para o mais velho)
-            var jogadoresOrdenados = new List<Jogador>(jogadores);
-            jogadoresOrdenados.Sort((a, b) => a.Idade.CompareTo(b.Idade));
-
-            int totalTimes = jogadores.Count / jogadoresPorTime;
-            if (jogadores.Count % jogadoresPorTime != 0) totalTimes++;
-            for (int i = 0; i < totalTimes; i++)
-            {
-                var time = new Time(codigoTime++, $"Time {codigoTime}", 0, Posicao.Goleiro, 0);
-                times.Add(time);
-            }
-
-            // Distribui alternando entre mais novos e mais velhos
-            int inicio = 0;
-            int fim = jogadoresOrdenados.Count - 1;
-            int indiceTime = 0;
-            while (inicio <= fim)
-            {
-                if (inicio <= fim)
-                {
-                    times[indiceTime % times.Count].AdicionarJogadores(jogadoresOrdenados[inicio]);
-                    indiceTime++;
-                    inicio++;
-                }
-                if (inicio <= fim)
-                {
-                    times[indiceTime % times.Count].AdicionarJogadores(jogadoresOrdenados[fim]);
-                    indiceTime++;
-                    fim--;
-                }
-            }
-
-            return times;
+            return novoTime;
         }
     }
 }

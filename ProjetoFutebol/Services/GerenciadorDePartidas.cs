@@ -1,4 +1,5 @@
 using ProjetoFutebol.Models;
+using ProjetoFutebol.Utils;
 namespace ProjetoFutebol.Services
 {
     public class GerenciadorDePartidas
@@ -10,15 +11,14 @@ namespace ProjetoFutebol.Services
         public GerenciadorDePartidas(ModoPartida modo)
         {
             modoAtual = modo;
+            historico = new List<Partida>(); // Não carrega mais do JSON
         }
 
         public void RegistrarPartida(Partida partida)
         {
             historico.Add(partida);
-
             if (!jogosPorTime.ContainsKey(partida.Time1)) jogosPorTime[partida.Time1] = 0;
             if (!jogosPorTime.ContainsKey(partida.Time2)) jogosPorTime[partida.Time2] = 0;
-
             jogosPorTime[partida.Time1]++;
             jogosPorTime[partida.Time2]++;
         }
@@ -34,12 +34,10 @@ namespace ProjetoFutebol.Services
             {
                 case ModoPartida.QuemGanhaFica:
                     return vencedor;
-
                 case ModoPartida.DoisJogosPorTime:
                     if (jogosPorTime.ContainsKey(timeAnterior) && jogosPorTime[timeAnterior] >= 2)
                         return null;
                     return vencedor;
-
                 default:
                     return null;
             }
