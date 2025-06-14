@@ -66,16 +66,36 @@ namespace ProjetoFutebol.UI
                 switch (opcao)
                 {
                     case "1":
-                        Console.Write("Código: ");
-                        int cod = int.Parse(Console.ReadLine()!);
-                        Console.Write("Nome: ");
-                        string nome = Console.ReadLine()!;
-                        Console.Write("Idade: ");
-                        int idade = int.Parse(Console.ReadLine()!);
-                        Console.WriteLine("Posição (0 = Goleiro, 1 = Defesa, 2 = Ataque): ");
-                        Posicao posicao = (Posicao)int.Parse(Console.ReadLine()!);
-                        gerJogadores.AdicionarJogador(new Jogador(cod, nome, idade, posicao));
-                        Console.WriteLine("Jogador cadastrado com sucesso.");
+                        try {
+                            Console.Write("Código: ");
+                            if (!int.TryParse(Console.ReadLine(), out int cod))
+                            {
+                                Console.WriteLine("Código inválido. Pressione Enter para continuar...");
+                                Console.ReadLine();
+                                break;
+                            }
+                            Console.Write("Nome: ");
+                            string nome = Console.ReadLine()!;
+                            Console.Write("Idade: ");
+                            if (!int.TryParse(Console.ReadLine(), out int idade))
+                            {
+                                Console.WriteLine("Idade inválida. Pressione Enter para continuar...");
+                                Console.ReadLine();
+                                break;
+                            }
+                            Console.WriteLine("Posição (0 = Goleiro, 1 = Defesa, 2 = Ataque): ");
+                            if (!int.TryParse(Console.ReadLine(), out int posicaoInt) || posicaoInt < 0 || posicaoInt > 2)
+                            {
+                                Console.WriteLine("Posição inválida. Pressione Enter para continuar...");
+                                Console.ReadLine();
+                                break;
+                            }
+                            Posicao posicao = (Posicao)posicaoInt;
+                            gerJogadores.AdicionarJogador(new Jogador(cod, nome, idade, posicao));
+                            Console.WriteLine("Jogador cadastrado com sucesso.");
+                        } catch (Exception ex) {
+                            Console.WriteLine($"Erro ao cadastrar jogador: {ex.Message}");
+                        }
                         Console.ReadLine();
                         break;
                     case "2":
@@ -85,30 +105,66 @@ namespace ProjetoFutebol.UI
                         Console.ReadLine();
                         break;
                     case "3":
-                        Console.Write("Código do jogador a atualizar: ");
-                        int codAtualizar = int.Parse(Console.ReadLine()!);
-                        var jogadorAtual = gerJogadores.BuscarPorCodigo(codAtualizar);
-                        if (jogadorAtual == null)
-                        {
-                            Console.WriteLine("Jogador não encontrado.");
-                            Console.ReadLine();
-                            break;
+                        try {
+                            Console.Write("Código do jogador a atualizar: ");
+                            if (!int.TryParse(Console.ReadLine(), out int codAtualizar))
+                            {
+                                Console.WriteLine("Código inválido. Pressione Enter para continuar...");
+                                Console.ReadLine();
+                                break;
+                            }
+                            var jogadorAtual = gerJogadores.BuscarPorCodigo(codAtualizar);
+                            if (jogadorAtual == null)
+                            {
+                                Console.WriteLine("Jogador não encontrado.");
+                                Console.ReadLine();
+                                break;
+                            }
+                            Console.Write($"Novo nome ({jogadorAtual.Nome}): ");
+                            string novoNome = Console.ReadLine()!;
+                            Console.Write($"Nova idade ({jogadorAtual.Idade}): ");
+                            if (!int.TryParse(Console.ReadLine(), out int novaIdade))
+                            {
+                                Console.WriteLine("Idade inválida. Pressione Enter para continuar...");
+                                Console.ReadLine();
+                                break;
+                            }
+                            Console.WriteLine($"Nova posição (0 = Goleiro, 1 = Defesa, 2 = Ataque) ({jogadorAtual.Posicao}): ");
+                            if (!int.TryParse(Console.ReadLine(), out int novaPosicaoInt) || novaPosicaoInt < 0 || novaPosicaoInt > 2)
+                            {
+                                Console.WriteLine("Posição inválida. Pressione Enter para continuar...");
+                                Console.ReadLine();
+                                break;
+                            }
+                            Posicao novaPosicao = (Posicao)novaPosicaoInt;
+                            gerJogadores.AtualizarJogador(new Jogador(codAtualizar, string.IsNullOrWhiteSpace(novoNome) ? jogadorAtual.Nome : novoNome, novaIdade, novaPosicao));
+                            Console.WriteLine("Jogador atualizado com sucesso.");
+                        } catch (Exception ex) {
+                            Console.WriteLine($"Erro ao atualizar jogador: {ex.Message}");
                         }
-                        Console.Write($"Novo nome ({jogadorAtual.Nome}): ");
-                        string novoNome = Console.ReadLine()!;
-                        Console.Write($"Nova idade ({jogadorAtual.Idade}): ");
-                        int novaIdade = int.Parse(Console.ReadLine()!);
-                        Console.WriteLine($"Nova posição (0 = Goleiro, 1 = Defesa, 2 = Ataque) ({jogadorAtual.Posicao}): ");
-                        Posicao novaPosicao = (Posicao)int.Parse(Console.ReadLine()!);
-                        gerJogadores.AtualizarJogador(new Jogador(codAtualizar, string.IsNullOrWhiteSpace(novoNome) ? jogadorAtual.Nome : novoNome, novaIdade, novaPosicao));
-                        Console.WriteLine("Jogador atualizado com sucesso.");
                         Console.ReadLine();
                         break;
                     case "4":
-                        Console.Write("Código do jogador a remover: ");
-                        int codigoRemover = int.Parse(Console.ReadLine()!);
-                        gerJogadores.RemoverJogador(codigoRemover);
-                        Console.WriteLine("Jogador removido.");
+                        try {
+                            Console.Write("Código do jogador a remover: ");
+                            if (!int.TryParse(Console.ReadLine(), out int codigoRemover))
+                            {
+                                Console.WriteLine("Código inválido. Pressione Enter para continuar...");
+                                Console.ReadLine();
+                                break;
+                            }
+                            var jogadorRemover = gerJogadores.BuscarPorCodigo(codigoRemover);
+                            if (jogadorRemover == null)
+                            {
+                                Console.WriteLine("Jogador não encontrado.");
+                                Console.ReadLine();
+                                break;
+                            }
+                            gerJogadores.RemoverJogador(codigoRemover);
+                            Console.WriteLine("Jogador removido.");
+                        } catch (Exception ex) {
+                            Console.WriteLine($"Erro ao remover jogador: {ex.Message}");
+                        }
                         Console.ReadLine();
                         break;
                     default:
@@ -240,31 +296,52 @@ namespace ProjetoFutebol.UI
                         Console.ReadLine();
                         break;
                     case "5":
-                        var jogos5 = gerJogos.ListarJogos();
-                        if (jogos5.Count == 0)
-                        {
-                            Console.WriteLine("Nenhum jogo cadastrado.");
-                            Console.ReadLine();
-                            break;
-                        }
-                        Console.WriteLine("Selecione o jogo:");
-                        for (int i = 0; i < jogos5.Count; i++)
-                            Console.WriteLine($"{i} - {jogos5[i].Data.ToShortDateString()} em {jogos5[i].Local}");
-                        int index5 = int.Parse(Console.ReadLine()!);
-                        var jogoSel5 = jogos5[index5];
-                        Console.WriteLine("Selecione o jogador interessado:");
-                        var jogadoresDisp5 = gerJogadores.ListarJogadores();
-                        for (int i = 0; i < jogadoresDisp5.Count; i++)
-                            Console.WriteLine($"{i} - {jogadoresDisp5[i].Nome} ({jogadoresDisp5[i].Posicao})");
-                        int idxJog5 = int.Parse(Console.ReadLine()!);
-                        var jogadorInt5 = jogadoresDisp5[idxJog5];
                         try {
-                            gerJogos.RegistrarInteressado(jogoSel5, jogadorInt5);
-                            Console.WriteLine("Interessado registrado.");
+                            var jogos5 = gerJogos.ListarJogos();
+                            if (jogos5.Count == 0)
+                            {
+                                Console.WriteLine("Nenhum jogo cadastrado.");
+                                Console.ReadLine();
+                                break;
+                            }
+                            string continuarInteresse = "s";
+                            while (continuarInteresse == "s") {
+                                Console.Clear();
+                                Console.WriteLine("Selecione o jogo:");
+                                for (int i = 0; i < jogos5.Count; i++)
+                                    Console.WriteLine($"{i} - {jogos5[i].Data.ToShortDateString()} em {jogos5[i].Local}");
+                                if (!int.TryParse(Console.ReadLine(), out int index5) || index5 < 0 || index5 >= jogos5.Count)
+                                {
+                                    Console.WriteLine("Jogo inválido. Pressione Enter para continuar...");
+                                    Console.ReadLine();
+                                    continue;
+                                }
+                                var jogoSel5 = jogos5[index5];
+                                Console.WriteLine("Selecione o jogador interessado:");
+                                var jogadoresDisp5 = gerJogadores.ListarJogadores();
+                                for (int i = 0; i < jogadoresDisp5.Count; i++)
+                                    Console.WriteLine($"{i} - {jogadoresDisp5[i].Nome} ({jogadoresDisp5[i].Posicao})");
+                                if (!int.TryParse(Console.ReadLine(), out int idxJog5) || idxJog5 < 0 || idxJog5 >= jogadoresDisp5.Count)
+                                {
+                                    Console.WriteLine("Jogador inválido. Pressione Enter para continuar...");
+                                    Console.ReadLine();
+                                    continue;
+                                }
+                                var jogadorInt5 = jogadoresDisp5[idxJog5];
+                                gerJogos.RegistrarInteressado(jogoSel5, jogadorInt5);
+                                Console.WriteLine("Interessado registrado.");
+                                Console.WriteLine();
+                                Console.Write("Deseja cadastrar mais interessados? (s/n): ");
+                                continuarInteresse = Console.ReadLine()!.Trim().ToLower();
+                                if (continuarInteresse != "s") {
+                                    Console.WriteLine("Voltando ao menu de jogos. Pressione Enter para continuar...");
+                                    Console.ReadLine();
+                                }
+                            } // fim do while
                         } catch (Exception ex) {
                             Console.WriteLine($"Erro: {ex.Message}");
+                            Console.ReadLine();
                         }
-                        Console.ReadLine();
                         break;
 
                     case "6":

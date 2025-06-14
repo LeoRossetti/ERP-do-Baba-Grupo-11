@@ -1,8 +1,8 @@
 [
   {
-    "Data": "2025-09-09T00:00:00",
+    "Data": "2025-01-04T00:00:00",
     "Local": "unasp",
-    "TipoCampo": "grama",
+    "TipoCampo": "areia ",
     "JogadoresPorTime": 3,
     "LimiteTimes": null,
     "Interessados": [
@@ -77,85 +77,46 @@
         "Nome": "lacerda",
         "Idade": 60,
         "Posicao": 2
+      },
+      {
+        "Codigo": 455,
+        "Nome": "sapoide",
+        "Idade": 15,
+        "Posicao": 1
       }
     ],
     "Partidas": [
       {
-        "Data": "2025-06-14T18:07:31.8046208-03:00",
+        "Data": "2025-06-14T20:28:34.620137-03:00",
         "Time1": "Time 1",
         "Time2": "Time 2",
         "Vencedor": "Time 1",
         "Observacoes": null,
-        "GolsTime1": 4,
-        "GolsTime2": 2
+        "GolsTime1": 5,
+        "GolsTime2": 0
       },
       {
-        "Data": "2025-06-14T18:07:41.6602059-03:00",
+        "Data": "2025-06-14T20:28:56.476125-03:00",
         "Time1": "Time 1",
         "Time2": "Time 3",
-        "Vencedor": "Time 3",
+        "Vencedor": "Time 1",
         "Observacoes": null,
-        "GolsTime1": 2,
-        "GolsTime2": 3
+        "GolsTime1": 5,
+        "GolsTime2": 0
       },
       {
-        "Data": "2025-06-14T18:08:00.4384554-03:00",
-        "Time1": "Time 3",
+        "Data": "2025-06-14T20:29:14.8914449-03:00",
+        "Time1": "Time 1",
         "Time2": "Time 4",
-        "Vencedor": "Time 4",
+        "Vencedor": "Time 1",
         "Observacoes": null,
-        "GolsTime1": 3,
-        "GolsTime2": 4
+        "GolsTime1": 5,
+        "GolsTime2": 0
       },
       {
-        "Data": "2025-06-14T18:08:14.3987343-03:00",
-        "Time1": "Time 4",
+        "Data": "2025-06-14T20:29:31.279072-03:00",
+        "Time1": "Time 1",
         "Time2": "Time 5",
-        "Vencedor": "Time 5",
-        "Observacoes": null,
-        "GolsTime1": 5,
-        "GolsTime2": 6
-      },
-      {
-        "Data": "2025-06-14T18:08:25.189445-03:00",
-        "Time1": "Time 5",
-        "Time2": "Time 6",
-        "Vencedor": "Time 6",
-        "Observacoes": null,
-        "GolsTime1": 7,
-        "GolsTime2": 8
-      },
-      {
-        "Data": "2025-06-14T18:08:42.1636352-03:00",
-        "Time1": "Time 1",
-        "Time2": "Time 2",
-        "Vencedor": "Time 1",
-        "Observacoes": null,
-        "GolsTime1": 2,
-        "GolsTime2": 0
-      },
-      {
-        "Data": "2025-06-14T18:08:47.5756234-03:00",
-        "Time1": "Time 1",
-        "Time2": "Time 2",
-        "Vencedor": "Time 1",
-        "Observacoes": null,
-        "GolsTime1": 2,
-        "GolsTime2": 0
-      },
-      {
-        "Data": "2025-06-14T18:08:52.2293454-03:00",
-        "Time1": "Time 1",
-        "Time2": "Time 3",
-        "Vencedor": "Time 1",
-        "Observacoes": null,
-        "GolsTime1": 5,
-        "GolsTime2": 0
-      },
-      {
-        "Data": "2025-06-14T18:08:56.4414476-03:00",
-        "Time1": "Time 1",
-        "Time2": "Time 3",
         "Vencedor": "Time 1",
         "Observacoes": null,
         "GolsTime1": 5,
