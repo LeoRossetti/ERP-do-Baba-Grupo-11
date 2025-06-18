@@ -52,13 +52,13 @@ namespace ProjetoFutebol.UI
             {
                 Console.Clear();
                 Console.WriteLine("╔════════════════════════════════════════════╗");
-                Console.WriteLine("║         GESTÃO DE JOGADORES               ║");
+                Console.WriteLine("║         GESTÃO DE JOGADORES                ║");
                 Console.WriteLine("╠════════════════════════════════════════════╣");
-                Console.WriteLine("║  1. Cadastrar jogador                     ║");
-                Console.WriteLine("║  2. Listar jogadores                      ║");
-                Console.WriteLine("║  3. Atualizar jogador                     ║");
-                Console.WriteLine("║  4. Remover jogador                       ║");
-                Console.WriteLine("║  0. Voltar                                ║");
+                Console.WriteLine("║  1. Cadastrar jogador                      ║");
+                Console.WriteLine("║  2. Listar jogadores                       ║");
+                Console.WriteLine("║  3. Atualizar jogador                      ║");
+                Console.WriteLine("║  4. Remover jogador                        ║");
+                Console.WriteLine("║  0. Voltar                                 ║");
                 Console.WriteLine("╚════════════════════════════════════════════╝");
                 Console.Write("Escolha uma opção: ");
                 var opcao = Console.ReadLine();
