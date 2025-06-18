@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ERP-do-Baba-Gropo-11")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54f90fa9c81da4c759722823c37c49399aee15d8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c21dbf8ede8def9419240106b471803ded806272")]
 [assembly: System.Reflection.AssemblyProductAttribute("ERP-do-Baba-Gropo-11")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ERP-do-Baba-Gropo-11")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
