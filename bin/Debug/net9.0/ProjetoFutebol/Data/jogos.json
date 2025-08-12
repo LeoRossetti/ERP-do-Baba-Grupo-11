@@ -1,126 +1,78 @@
 [
   {
-    "Data": "2025-01-04T00:00:00",
-    "Local": "unasp",
-    "TipoCampo": "areia ",
+    "Data": "2025-09-09T00:00:00",
+    "Local": "Unasp",
+    "TipoCampo": "Grama",
     "JogadoresPorTime": 3,
     "LimiteTimes": null,
     "Interessados": [
       {
-        "Codigo": 222,
-        "Nome": "taibo",
-        "Idade": 13,
+        "Codigo": 111,
+        "Nome": "Leo",
+        "Idade": 20,
         "Posicao": 0
       },
       {
-        "Codigo": 11,
-        "Nome": "bostoide",
-        "Idade": 90,
+        "Codigo": 333,
+        "Nome": "Luisa",
+        "Idade": 18,
+        "Posicao": 2
+      },
+      {
+        "Codigo": 444,
+        "Nome": "Brunao",
+        "Idade": 20,
+        "Posicao": 0
+      },
+      {
+        "Codigo": 555,
+        "Nome": "Lucas",
+        "Idade": 30,
+        "Posicao": 1
+      },
+      {
+        "Codigo": 777,
+        "Nome": "Philip",
+        "Idade": 40,
+        "Posicao": 1
+      },
+      {
+        "Codigo": 888,
+        "Nome": "Rodrigo",
+        "Idade": 50,
         "Posicao": 2
       },
       {
         "Codigo": 999,
-        "Nome": "Macakitos",
-        "Idade": 23,
-        "Posicao": 2
-      },
-      {
-        "Codigo": 666,
-        "Nome": "Pel\u00FAcio",
-        "Idade": 64,
-        "Posicao": 1
-      },
-      {
-        "Codigo": 555,
-        "Nome": "leproso",
-        "Idade": 30,
-        "Posicao": 0
-      },
-      {
-        "Codigo": 12345,
-        "Nome": "ronaldinho",
-        "Idade": 40,
-        "Posicao": 2
-      },
-      {
-        "Codigo": 9991,
-        "Nome": "brunao",
-        "Idade": 31,
-        "Posicao": 0
-      },
-      {
-        "Codigo": 89118,
-        "Nome": "kaua",
-        "Idade": 29,
-        "Posicao": 2
-      },
-      {
-        "Codigo": 191,
-        "Nome": "BABACA",
-        "Idade": 90,
-        "Posicao": 1
-      },
-      {
-        "Codigo": 678,
-        "Nome": "negro",
-        "Idade": 30,
-        "Posicao": 0
-      },
-      {
-        "Codigo": 9987,
-        "Nome": "elias",
-        "Idade": 30,
-        "Posicao": 1
-      },
-      {
-        "Codigo": 90949,
-        "Nome": "lacerda",
-        "Idade": 60,
-        "Posicao": 2
-      },
-      {
-        "Codigo": 455,
-        "Nome": "sapoide",
+        "Nome": "Pedro",
         "Idade": 15,
-        "Posicao": 1
+        "Posicao": 2
+      },
+      {
+        "Codigo": 987,
+        "Nome": "Eduardo",
+        "Idade": 35,
+        "Posicao": 2
       }
     ],
     "Partidas": [
       {
-        "Data": "2025-06-14T20:28:34.620137-03:00",
+        "Data": "2025-06-18T15:18:11.5506734-03:00",
         "Time1": "Time 1",
         "Time2": "Time 2",
         "Vencedor": "Time 1",
-        "Observacoes": null,
-        "GolsTime1": 5,
-        "GolsTime2": 0
+        "Observacoes": "Leo se machucou",
+        "GolsTime1": 3,
+        "GolsTime2": 2
       },
       {
-        "Data": "2025-06-14T20:28:56.476125-03:00",
+        "Data": "2025-06-18T15:18:31.9351034-03:00",
         "Time1": "Time 1",
         "Time2": "Time 3",
-        "Vencedor": "Time 1",
+        "Vencedor": "Time 3",
         "Observacoes": null,
-        "GolsTime1": 5,
-        "GolsTime2": 0
-      },
-      {
-        "Data": "2025-06-14T20:29:14.8914449-03:00",
-        "Time1": "Time 1",
-        "Time2": "Time 4",
-        "Vencedor": "Time 1",
-        "Observacoes": null,
-        "GolsTime1": 5,
-        "GolsTime2": 0
-      },
-      {
-        "Data": "2025-06-14T20:29:31.279072-03:00",
-        "Time1": "Time 1",
-        "Time2": "Time 5",
-        "Vencedor": "Time 1",
-        "Observacoes": null,
-        "GolsTime1": 5,
-        "GolsTime2": 0
+        "GolsTime1": 2,
+        "GolsTime2": 4
       }
     ]
   }
